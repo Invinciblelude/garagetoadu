@@ -182,6 +182,7 @@
 
   <footer class="text-center text-xs text-slate-500 py-6">
     © <span id="year"></span> Garage to ADU. All rights reserved.
+    <span class="block mt-1" id="versionStamp"></span>
   </footer>
 
   <script>
@@ -193,6 +194,10 @@
         overlay.style.width = ba.value + '%';
       });
     }
+    // Version stamp for cache-busting / confirming latest deploy
+    const stamp = new Date().toLocaleString();
+    const v = document.getElementById('versionStamp');
+    if (v) v.textContent = `Deployed: ${stamp}`;
   </script>
 </body>
 </html>
