@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Favicon Generator</title>
+</head>
+<body>
+  <h1>Favicon Generator</h1>
+  <p>This will create favicon.ico with home emoji 🏡</p>
+  <canvas id="canvas" width="32" height="32" style="border: 1px solid #ccc; display: block; margin: 20px 0;"></canvas>
+  <button onclick="downloadFavicon()">Download favicon.ico</button>
+  
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Draw green background
+    ctx.fillStyle = '#16a34a';
+    ctx.fillRect(0, 0, 32, 32);
+    
+    // Draw home emoji
+    ctx.font = '20px Arial';
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('🏡', 16, 16);
+    
+    function downloadFavicon() {
+      canvas.toBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'favicon.ico';
+        a.click();
+        URL.revokeObjectURL(url);
+      }, 'image/x-icon');
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Home Riser Fix - Get a Free Estimate</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Contact Home Riser Fix for free estimates on ADU construction, custom building, decking, and property maintenance services across Northern California. Call 916-408-2256." />
+  <meta name="keywords" content="contact home builders, free estimate, Northern California contractors, ADU consultation, home renovation quote" />
+  <link rel="canonical" href="https://homeriserfix.com/contact.html" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://homeriserfix.com/contact.html" />
+  <meta property="og:title" content="Contact Us | Home Riser Fix - Get a Free Estimate" />
+  <meta property="og:description" content="Contact Home Riser Fix for free estimates on home services across Northern California. Call 916-408-2256 or email info@nestinghomesolutions.com" />
+  <meta property="og:image" content="https://homeriserfix.com/assets/logo.png" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://homeriserfix.com/contact.html" />
+  <meta name="twitter:title" content="Contact Us | Home Riser Fix" />
+  <meta name="twitter:description" content="Get a free estimate on home services across Northern California." />
+  <meta name="twitter:image" content="https://homeriserfix.com/assets/logo.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="assets/favicon.ico" />
+</head>
+<body class="bg-white text-slate-800">
+  <header class="bg-green-700 text-white">
+    <div id="header-placeholder"></div>
+  </header>
+  <script src="assets/load-header.js"></script>
+
+  <section class="bg-gradient-to-br from-green-700 to-green-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight">Contact Us</h1>
+        <p class="mt-4 text-lg text-white/95">
+          Tell us what you need and we’ll reply as soon as we can.
+        </p>
+        <div class="mt-6 space-y-2 text-sm text-white/95">
+          <div><span class="opacity-80">Phone:</span> <a class="underline" href="tel:9164082256">916‑408‑2256</a></div>
+          <div><span class="opacity-80">Email:</span> <a class="underline" href="mailto:info@nestinghomesolutions.com">info@nestinghomesolutions.com</a></div>
+          <div><span class="opacity-80">Service area:</span> Northern California</div>
+        </div>
+      </div>
+      <div class="bg-white/10 rounded-lg p-4">
+        <img src="assets/portfolio/property-maintenance/IMG_01.jpg" alt="Project photo" class="w-full rounded-md" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast notification -->
+  <div id="toast" class="fixed top-4 right-4 z-50 hidden">
+    <div class="bg-white border-2 rounded-lg shadow-lg p-4 min-w-[300px] max-w-md">
+      <div class="flex items-start gap-3">
+        <div id="toastIcon" class="flex-shrink-0 mt-0.5"></div>
+        <div class="flex-1">
+          <p id="toastMessage" class="text-sm font-medium"></p>
+        </div>
+        <button id="toastClose" type="button" class="flex-shrink-0 text-slate-400 hover:text-slate-600" aria-label="Close">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <section class="p-6 border rounded-lg bg-white">
+        <h2 class="text-xl font-bold">Request an estimate</h2>
+        <p class="mt-2 text-sm text-slate-600">We’ll use your details to follow up. No spam.</p>
+
+        <!-- Formspree: replace `your-form-id` after creating your form at formspree.io -->
+        <form id="contactForm" action="https://formspree.io/f/mgvgdqlw" method="POST" class="mt-6 grid gap-4" novalidate>
+          <!-- Honeypot: humans should not fill this -->
+          <label class="hidden" aria-hidden="true">
+            Company
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </label>
+          <input type="hidden" name="_subject" value="New contact request (Home Riser Fix)" />
+          <input type="hidden" name="_ts" id="formTs" value="" />
+
+          <div>
+            <label class="text-sm font-semibold" for="name">Name</label>
+            <input id="name" name="name" class="mt-1 w-full border p-3 rounded" autocomplete="name" required minlength="2" />
+            <p class="mt-1 text-xs text-red-600 hidden" data-err="name"></p>
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold" for="email">Email</label>
+            <input id="email" name="email" type="email" class="mt-1 w-full border p-3 rounded" autocomplete="email" required />
+            <p class="mt-1 text-xs text-red-600 hidden" data-err="email"></p>
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold" for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" class="mt-1 w-full border p-3 rounded" autocomplete="tel" placeholder="(123) 456-7890" />
+            <p class="mt-1 text-xs text-red-600 hidden" data-err="phone"></p>
+            <p class="mt-1 text-xs text-slate-500">Format: (123) 456-7890 or 123-456-7890</p>
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold" for="message">Message</label>
+            <textarea id="message" name="message" rows="5" class="mt-1 w-full border p-3 rounded" required minlength="10" maxlength="2000" placeholder="Tell us what you're looking to do (scope, city, timing)."></textarea>
+            <div class="mt-1 flex items-center justify-between">
+              <p class="text-xs text-red-600 hidden" data-err="message"></p>
+              <p class="text-xs text-slate-500"><span id="messageCount">0</span> / 2000 characters</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between gap-4">
+            <button id="submitBtn" class="bg-green-700 text-white px-5 py-3 rounded-md font-semibold hover:bg-green-800" type="submit">
+              Send message
+            </button>
+            <div id="formStatus" class="text-sm text-slate-600"></div>
+          </div>
+        </form>
+      </section>
+
+      <aside class="p-6 border rounded-lg bg-slate-50">
+        <h3 class="font-semibold text-lg">Prefer to contact directly?</h3>
+        <p class="mt-2 text-sm text-slate-700">Reach us here (also listed above):</p>
+        <ul class="mt-4 text-sm list-disc pl-5 space-y-1 text-slate-700">
+          <li><span class="font-semibold">Phone:</span> <a class="underline" href="tel:9164082256">916‑408‑2256</a></li>
+          <li><span class="font-semibold">Email:</span> <a class="underline" href="mailto:info@nestinghomesolutions.com">info@nestinghomesolutions.com</a></li>
+        </ul>
+        <p class="mt-5 text-sm text-slate-700">
+          We’re currently serving <span class="font-semibold">Northern California</span>.
+        </p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="text-center text-xs text-slate-500 py-6 border-t">
+    <div class="flex items-center justify-center gap-4 mb-2">
+      <a href="https://www.instagram.com/nestinghomesolutions?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-green-700 transition-colors" aria-label="Follow us on Instagram">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
+        </svg>
+      </a>
+    </div>
+    © <span id="year"></span> Home Riser Fix. All rights reserved.
+    <span class="block mt-1" id="versionStamp"></span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const stamp = new Date().toLocaleString();
+    const v = document.getElementById('versionStamp');
+    if (v) v.textContent = `Deployed: ${stamp}`;
+
+    // Minimal bot protection: honeypot + time-to-submit.
+    const ts = document.getElementById('formTs');
+    if (ts) ts.value = String(Date.now());
+
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    let isSubmitting = false; // Prevent multiple submissions
+
+    function setErr(field, msg) {
+      const el = document.querySelector(`[data-err=\"${field}\"]`);
+      if (!el) return;
+      if (msg) {
+        el.textContent = msg;
+        el.classList.remove('hidden');
+      } else {
+        el.textContent = '';
+        el.classList.add('hidden');
+      }
+    }
+
+    // Format phone number for display (optional, for better UX)
+    function formatPhoneNumber(value) {
+      const cleaned = value.replace(/\D/g, '');
+      if (cleaned.length >= 10) {
+        const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+        if (match) {
+          return `(${match[1]}) ${match[2]}-${match[3]}`;
+        }
+      }
+      return value;
+    }
+
+    // Validate USA phone number format
+    function validatePhone(phone) {
+      if (!phone || phone.trim() === '') return true; // Optional field
+      const cleaned = phone.replace(/\D/g, '');
+      // USA phone: 10 digits (with optional country code 1)
+      return cleaned.length === 10 || cleaned.length === 11;
+    }
+
+    // Validate name format (letters, spaces, hyphens, apostrophes)
+    function validateName(name) {
+      if (!name || name.trim().length < 2) return false;
+      // Allow letters, spaces, hyphens, apostrophes, and periods (for titles like Dr., Jr., etc.)
+      const nameRegex = /^[a-zA-Z\s\-'\.]+$/;
+      return nameRegex.test(name.trim()) && name.trim().length >= 2 && name.trim().length <= 100;
+    }
+
+    // Validate email format
+    function validateEmail(email) {
+      if (!email || email.trim() === '') return false;
+      // More comprehensive email validation
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+      return emailRegex.test(email.trim()) && email.trim().length <= 254;
+    }
+
+    function validate() {
+      let ok = true;
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const phone = document.getElementById('phone');
+      const message = document.getElementById('message');
+
+      setErr('name', '');
+      setErr('email', '');
+      setErr('phone', '');
+      setErr('message', '');
+
+      // Name validation
+      if (!name || !validateName(name.value)) {
+        setErr('name', 'Please enter a valid name (2-100 characters, letters, spaces, hyphens, and apostrophes only).');
+        ok = false;
+      }
+
+      // Email validation
+      if (!email || !validateEmail(email.value)) {
+        setErr('email', 'Please enter a valid email address.');
+        ok = false;
+      }
+
+      // Phone validation (optional)
+      if (phone && phone.value.trim() !== '' && !validatePhone(phone.value)) {
+        setErr('phone', 'Please enter a valid USA phone number (10 digits).');
+        ok = false;
+      }
+
+      // Message validation
+      const messageText = message ? message.value.trim() : '';
+      if (!message || messageText.length < 10) {
+        setErr('message', 'Please enter a message (at least 10 characters).');
+        ok = false;
+      } else if (messageText.length > 2000) {
+        setErr('message', 'Message must be 2000 characters or less.');
+        ok = false;
+      }
+
+      return ok;
+    }
+
+    // Character counter for message
+    const messageField = document.getElementById('message');
+    const messageCount = document.getElementById('messageCount');
+    if (messageField && messageCount) {
+      // Initialize counter
+      messageCount.textContent = messageField.value.length;
+      
+      messageField.addEventListener('input', () => {
+        const count = messageField.value.length;
+        messageCount.textContent = count;
+        if (count > 2000) {
+          messageCount.classList.add('text-red-600');
+          messageCount.classList.remove('text-slate-500');
+        } else {
+          messageCount.classList.remove('text-red-600');
+          messageCount.classList.add('text-slate-500');
+        }
+      });
+    }
+
+    // Real-time validation feedback (optional, for better UX)
+    const nameField = document.getElementById('name');
+    const emailField = document.getElementById('email');
+    const phoneField = document.getElementById('phone');
+
+    if (nameField) {
+      nameField.addEventListener('blur', () => {
+        if (nameField.value.trim() && !validateName(nameField.value)) {
+          setErr('name', 'Please enter a valid name (2-100 characters, letters, spaces, hyphens, and apostrophes only).');
+        } else {
+          setErr('name', '');
+        }
+      });
+    }
+
+    if (emailField) {
+      emailField.addEventListener('blur', () => {
+        if (emailField.value.trim() && !validateEmail(emailField.value)) {
+          setErr('email', 'Please enter a valid email address.');
+        } else {
+          setErr('email', '');
+        }
+      });
+    }
+
+    if (phoneField) {
+      phoneField.addEventListener('blur', () => {
+        if (phoneField.value.trim() && !validatePhone(phoneField.value)) {
+          setErr('phone', 'Please enter a valid USA phone number (10 digits).');
+        } else {
+          setErr('phone', '');
+        }
+      });
+    }
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Prevent multiple submissions
+        if (isSubmitting) {
+          showToast('Please wait, your message is being sent...', 'error');
+          return;
+        }
+
+        // Honeypot check
+        const gotcha = form.querySelector('input[name=\"_gotcha\"]');
+        if (gotcha && gotcha.value) {
+          return;
+        }
+
+        // Time-to-submit check (very fast submits are often bots)
+        const started = Number(ts && ts.value ? ts.value : 0);
+        if (started && Date.now() - started < 2500) {
+          if (statusEl) statusEl.textContent = 'Please wait a moment and try again.';
+          return;
+        }
+
+        if (!validate()) {
+          if (statusEl) statusEl.textContent = 'Please fix the highlighted fields.';
+          return;
+        }
+
+        // Set submitting flag and disable button
+        isSubmitting = true;
+        if (statusEl) statusEl.textContent = 'Sending…';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+        }
+
+        // Submit via AJAX
+        const formData = new FormData(form);
+        
+        fetch('https://formspree.io/f/mgvgdqlw', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          if (response.ok) {
+            showToast('Thank you! Your message has been sent. We\'ll get back to you soon.', 'success');
+            form.reset();
+            // Reset timestamp for next submission
+            if (ts) ts.value = String(Date.now());
+            // Reset message counter
+            if (messageCount) messageCount.textContent = '0';
+          } else {
+            return response.json().then(data => {
+              // Handle Formspree rate limiting or other errors
+              if (response.status === 429) {
+                throw new Error('Too many submissions. Please try again later.');
+              }
+              throw new Error(data.error || 'Something went wrong. Please try again.');
+            });
+          }
+        })
+        .catch(error => {
+          showToast(error.message || 'There was an error sending your message. Please try again or contact us directly.', 'error');
+        })
+        .finally(() => {
+          isSubmitting = false;
+          if (statusEl) statusEl.textContent = '';
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send message';
+          }
+        });
+      });
+    }
+
+    // Toast notification functions
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      
+      if (!toast || !toastMessage || !toastIcon) return;
+
+      toastMessage.textContent = message;
+      
+      // Set icon and colors based on type
+      if (type === 'success') {
+        toastIcon.innerHTML = '<svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+        toast.querySelector('.border-2').classList.remove('border-red-500');
+        toast.querySelector('.border-2').classList.add('border-green-500');
+      } else {
+        toastIcon.innerHTML = '<svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+        toast.querySelector('.border-2').classList.remove('border-green-500');
+        toast.querySelector('.border-2').classList.add('border-red-500');
+      }
+
+      toast.classList.remove('hidden');
+      
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        hideToast();
+      }, 5000);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('toast');
+      if (toast) toast.classList.add('hidden');
+    }
+
+    // Close button handler
+    const toastClose = document.getElementById('toastClose');
+    if (toastClose) {
+      toastClose.addEventListener('click', hideToast);
+    }
+  </script>
+</body>
+</html>
+
+
