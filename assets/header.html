@@ -9,5 +9,23 @@
     <a href="portfolio.html" class="nav-link hover:underline" data-page="portfolio">Portfolio</a>
     <a href="contact.html" class="nav-link hover:underline" data-page="contact">Contact Us</a>
   </div>
+  <!-- Mobile hamburger button -->
+  <button id="mobileMenuToggle" class="md:hidden p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50" aria-label="Toggle menu" aria-expanded="false">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="menuIcon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+    <svg class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="closeIcon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+</div>
+<!-- Mobile menu -->
+<div id="mobileMenu" class="md:hidden fixed inset-x-0 top-[73px] bg-slate-800 border-t border-slate-700 hidden z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-4">
+    <a href="who-we-are.html" class="nav-link-mobile py-2 text-white hover:text-green-400 transition-colors" data-page="who-we-are">Who we are</a>
+    <a href="services.html" class="nav-link-mobile py-2 text-white hover:text-green-400 transition-colors" data-page="services">Services</a>
+    <a href="portfolio.html" class="nav-link-mobile py-2 text-white hover:text-green-400 transition-colors" data-page="portfolio">Portfolio</a>
+    <a href="contact.html" class="nav-link-mobile py-2 text-white hover:text-green-400 transition-colors" data-page="contact">Contact Us</a>
+  </div>
 </div>
 

@@ -28,10 +28,11 @@
   <link rel="apple-touch-icon" href="assets/favicon.ico" />
 </head>
 <body class="bg-white text-slate-800">
-  <header class="bg-green-700 text-white">
+  <header class="bg-slate-800 text-white">
     <div id="header-placeholder"></div>
   </header>
   <script src="assets/load-header.js"></script>
+  <script src="assets/scroll-reveal.js"></script>
 
   <section class="bg-gradient-to-br from-green-700 to-green-600 text-white">
     <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 grid md:grid-cols-2 gap-8 items-center">
@@ -71,7 +72,7 @@
 
   <main class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid lg:grid-cols-2 gap-8 items-start">
-      <section class="p-6 border rounded-lg bg-white">
+      <section class="p-6 border rounded-lg bg-white scroll-reveal">
         <h2 class="text-xl font-bold">Request an estimate</h2>
         <p class="mt-2 text-sm text-slate-600">We’ll use your details to follow up. No spam.</p>
 
@@ -82,7 +83,7 @@
             Company
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
           </label>
-          <input type="hidden" name="_subject" value="New contact request (Home Riser Fix)" />
+          <input type="hidden" name="_subject" id="formSubject" value="New contact request (Home Riser Fix)" />
           <input type="hidden" name="_ts" id="formTs" value="" />
 
           <div>
@@ -105,6 +106,58 @@
           </div>
 
           <div>
+            <label class="text-sm font-semibold">Services interested in <span class="text-red-600">*</span></label>
+            <p class="mt-1 mb-2 text-xs text-slate-500">Select all that apply</p>
+            <div class="grid sm:grid-cols-2 gap-3 mt-2">
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-slate-50">
+                <input type="checkbox" name="services" value="Permitting" class="mt-1" />
+                <span class="text-sm">Permitting</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-slate-50">
+                <input type="checkbox" name="services" value="Basic house inspection" class="mt-1" />
+                <span class="text-sm">Basic house inspection</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-slate-50">
+                <input type="checkbox" name="services" value="Home maintenance" class="mt-1" />
+                <span class="text-sm">Home maintenance</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-slate-50">
+                <input type="checkbox" name="services" value="Custom home building" class="mt-1" />
+                <span class="text-sm">Custom home building</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-slate-50">
+                <input type="checkbox" name="services" value="Decking" class="mt-1" />
+                <span class="text-sm">Decking</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-slate-50">
+                <input type="checkbox" name="services" value="Property management" class="mt-1" />
+                <span class="text-sm">Property management</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-slate-50">
+                <input type="checkbox" name="services" value="Painting & siding" class="mt-1" />
+                <span class="text-sm">Painting & siding</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-slate-50">
+                <input type="checkbox" name="services" value="Fencing" class="mt-1" />
+                <span class="text-sm">Fencing</span>
+              </label>
+            </div>
+            <p class="mt-1 text-xs text-red-600 hidden" data-err="services"></p>
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold" for="timing">Response time needed <span class="text-red-600">*</span></label>
+            <select id="timing" name="timing" class="mt-1 w-full border p-3 rounded" required>
+              <option value="">Select timing...</option>
+              <option value="Emergency">Emergency (immediate response needed)</option>
+              <option value="Urgent">Urgent (within 1 week)</option>
+              <option value="Standard">Standard (within 1 month)</option>
+              <option value="Flexible">Flexible (no rush)</option>
+            </select>
+            <p class="mt-1 text-xs text-red-600 hidden" data-err="timing"></p>
+          </div>
+
+          <div>
             <label class="text-sm font-semibold" for="message">Message</label>
             <textarea id="message" name="message" rows="5" class="mt-1 w-full border p-3 rounded" required minlength="10" maxlength="2000" placeholder="Tell us what you're looking to do (scope, city, timing)."></textarea>
             <div class="mt-1 flex items-center justify-between">
@@ -122,7 +175,7 @@
         </form>
       </section>
 
-      <aside class="p-6 border rounded-lg bg-slate-50">
+      <aside class="p-6 border rounded-lg bg-slate-50 scroll-reveal">
         <h3 class="font-semibold text-lg">Prefer to contact directly?</h3>
         <p class="mt-2 text-sm text-slate-700">Reach us here (also listed above):</p>
         <ul class="mt-4 text-sm list-disc pl-5 space-y-1 text-slate-700">
@@ -174,6 +227,20 @@
         el.classList.add('hidden');
       }
     }
+    
+    // Update form subject with timing when timing changes
+    const timingField = document.getElementById('timing');
+    const formSubject = document.getElementById('formSubject');
+    if (timingField && formSubject) {
+      timingField.addEventListener('change', () => {
+        const timing = timingField.value;
+        if (timing) {
+          formSubject.value = `New contact request (Home Riser Fix) - ${timing}`;
+        } else {
+          formSubject.value = 'New contact request (Home Riser Fix)';
+        }
+      });
+    }
 
     // Format phone number for display (optional, for better UX)
     function formatPhoneNumber(value) {
@@ -221,6 +288,8 @@
       setErr('name', '');
       setErr('email', '');
       setErr('phone', '');
+      setErr('services', '');
+      setErr('timing', '');
       setErr('message', '');
 
       // Name validation
@@ -238,6 +307,20 @@
       // Phone validation (optional)
       if (phone && phone.value.trim() !== '' && !validatePhone(phone.value)) {
         setErr('phone', 'Please enter a valid USA phone number (10 digits).');
+        ok = false;
+      }
+
+      // Services validation
+      const serviceCheckboxes = document.querySelectorAll('input[name="services"]:checked');
+      if (!serviceCheckboxes || serviceCheckboxes.length === 0) {
+        setErr('services', 'Please select at least one service.');
+        ok = false;
+      }
+      
+      // Timing validation
+      const timing = document.getElementById('timing');
+      if (!timing || !timing.value || timing.value.trim() === '') {
+        setErr('timing', 'Please select a response time needed.');
         ok = false;
       }
 
@@ -363,6 +446,8 @@
             if (ts) ts.value = String(Date.now());
             // Reset message counter
             if (messageCount) messageCount.textContent = '0';
+            // Reset form subject
+            if (formSubject) formSubject.value = 'New contact request (Home Riser Fix)';
           } else {
             return response.json().then(data => {
               // Handle Formspree rate limiting or other errors

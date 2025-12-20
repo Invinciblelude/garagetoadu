@@ -28,10 +28,11 @@
   <link rel="apple-touch-icon" href="assets/favicon.ico" />
 </head>
 <body class="bg-white text-slate-800">
-  <header class="bg-green-700 text-white">
+  <header class="bg-slate-800 text-white">
     <div id="header-placeholder"></div>
   </header>
   <script src="assets/load-header.js"></script>
+  <script src="assets/scroll-reveal.js"></script>
 
   <section class="bg-gradient-to-br from-green-700 to-green-600 text-white">
     <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 grid md:grid-cols-2 gap-8 items-center">
@@ -49,7 +50,7 @@
     </div>
   </section>
 
-  <main class="max-w-6xl mx-auto px-4 py-12">
+  <main class="max-w-6xl mx-auto px-4 py-12 scroll-reveal">
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
       <div>
         <h2 class="text-2xl font-bold">Project gallery</h2>
@@ -60,14 +61,14 @@
     </div>
 
     <!-- Filters -->
-    <div class="mt-8 flex flex-wrap items-center gap-2">
+    <div class="mt-8 flex flex-wrap items-center gap-2 scroll-reveal">
       <button type="button" class="pf-filter px-3 py-1.5 rounded-full border text-sm bg-green-700 text-white border-green-700" data-filter="all" aria-pressed="true">All</button>
       <button type="button" class="pf-filter px-3 py-1.5 rounded-full border text-sm hover:bg-slate-50" data-filter="custom-builds" aria-pressed="false">Custom Builds</button>
       <button type="button" class="pf-filter px-3 py-1.5 rounded-full border text-sm hover:bg-slate-50" data-filter="decking" aria-pressed="false">Decking</button>
       <button type="button" class="pf-filter px-3 py-1.5 rounded-full border text-sm hover:bg-slate-50" data-filter="property-maintenance" aria-pressed="false">Property Maintenance</button>
     </div>
 
-    <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+    <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 scroll-reveal">
       <!-- Custom Builds -->
       <button type="button" class="pf-item group rounded-lg overflow-hidden border bg-white focus:outline-none focus:ring-2 focus:ring-green-700/60" data-project="custom-builds" data-full="assets/portfolio/custom-builds/IMG_1.jpg" data-alt="Custom build photo 1">
         <img src="assets/portfolio/custom-builds/IMG_1.jpg" alt="Custom build photo 1" class="w-full h-40 object-cover group-hover:scale-[1.02] transition-transform" />
@@ -241,7 +242,7 @@
             </button>
           </div>
         </div>
-        <div class="bg-black">
+        <div class="bg-black" id="lightboxImageContainer">
           <img id="lightboxImg" src="" alt="" class="w-full max-h-[80vh] object-contain" />
         </div>
       </div>
@@ -272,6 +273,7 @@
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxImageContainer = document.getElementById('lightboxImageContainer');
 
     let lastFocused = null;
     let openTiles = [];
@@ -307,6 +309,12 @@
       if (lightboxClose) lightboxClose.focus();
       document.body.style.overflow = 'hidden';
       syncLightboxNav();
+      
+      // Reset touch positions
+      touchStartX = 0;
+      touchStartY = 0;
+      touchEndX = 0;
+      touchEndY = 0;
     }
 
     function closeLightbox() {
@@ -365,6 +373,56 @@
         goLightbox(1);
       }
     });
+    
+    // Touch swipe handlers for mobile
+    if (lightboxImageContainer) {
+      lightboxImageContainer.addEventListener('touchstart', (e) => {
+        if (lightbox && !lightbox.classList.contains('hidden')) {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }
+      }, { passive: true });
+      
+      lightboxImageContainer.addEventListener('touchmove', (e) => {
+        // Prevent vertical scrolling during horizontal swipe attempts
+        if (lightbox && !lightbox.classList.contains('hidden')) {
+          const deltaX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+          const deltaY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+          
+          // If horizontal movement is greater than vertical, prevent default scrolling
+          if (deltaX > deltaY && deltaX > 10) {
+            e.preventDefault();
+          }
+        }
+      }, { passive: false });
+      
+      lightboxImageContainer.addEventListener('touchend', (e) => {
+        if (lightbox && !lightbox.classList.contains('hidden')) {
+          touchEndX = e.changedTouches[0].screenX;
+          touchEndY = e.changedTouches[0].screenY;
+          
+          const deltaX = touchEndX - touchStartX;
+          const deltaY = Math.abs(touchEndY - touchStartY);
+          
+          // Check if swipe is primarily horizontal and exceeds threshold
+          if (Math.abs(deltaX) > swipeThreshold && Math.abs(deltaX) > deltaY) {
+            if (deltaX > 0) {
+              // Swipe right - go to previous image
+              goLightbox(-1);
+            } else {
+              // Swipe left - go to next image
+              goLightbox(1);
+            }
+          }
+          
+          // Reset touch positions
+          touchStartX = 0;
+          touchStartY = 0;
+          touchEndX = 0;
+          touchEndY = 0;
+        }
+      }, { passive: true });
+    }
 
     // Portfolio filters
     function setActiveFilter(filter) {

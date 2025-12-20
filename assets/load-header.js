@@ -13,7 +13,7 @@
       currentPage = currentPage.replace('.html', '').replace('index', '');
       if (!currentPage || currentPage === '') currentPage = 'index';
       
-      // Set active state for current page
+      // Set active state for current page (desktop nav)
       const navLinks = headerPlaceholder.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
         const linkPage = link.getAttribute('data-page');
@@ -22,6 +22,78 @@
           link.classList.remove('hover:underline');
         }
       });
+      
+      // Set active state for mobile nav
+      const mobileNavLinks = headerPlaceholder.querySelectorAll('.nav-link-mobile');
+      mobileNavLinks.forEach(link => {
+        const linkPage = link.getAttribute('data-page');
+        if (linkPage === currentPage) {
+          link.classList.add('text-green-400', 'font-semibold');
+        }
+      });
+      
+      // Mobile menu toggle functionality
+      const mobileMenuToggle = headerPlaceholder.querySelector('#mobileMenuToggle');
+      const mobileMenu = headerPlaceholder.querySelector('#mobileMenu');
+      const menuIcon = headerPlaceholder.querySelector('#menuIcon');
+      const closeIcon = headerPlaceholder.querySelector('#closeIcon');
+      
+      if (mobileMenuToggle && mobileMenu && menuIcon && closeIcon) {
+        mobileMenuToggle.addEventListener('click', () => {
+          const isOpen = !mobileMenu.classList.contains('hidden');
+          
+          if (isOpen) {
+            // Close menu
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          } else {
+            // Open menu
+            mobileMenu.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            mobileMenuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+        
+        // Close menu when clicking on a link
+        mobileNavLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            if (!mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+              mobileMenuToggle.setAttribute('aria-expanded', 'false');
+              document.body.style.overflow = '';
+            }
+          }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          }
+        });
+      }
     })
     .catch(err => {
       console.error('Failed to load header:', err);
