@@ -35,8 +35,8 @@
   <script src="assets/scroll-reveal.js"></script>
 
   <section class="bg-gradient-to-br from-green-700 to-green-600 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 grid md:grid-cols-2 gap-8 items-center">
-      <div>
+    <div class="max-w-6xl mx-auto px-4 py-14 md:py-16">
+      <div class="max-w-2xl">
         <h1 class="text-3xl md:text-4xl font-bold leading-tight">Portfolio</h1>
         <p class="mt-4 text-lg text-white/95">Browse examples of clean finishes, efficient layouts, and quality craftsmanship.</p>
         <div class="mt-6 flex gap-3">
@@ -44,8 +44,36 @@
           <a href="services.html" class="border border-white px-5 py-3 rounded-md">View Services</a>
         </div>
       </div>
-      <div class="bg-white/10 rounded-lg p-4">
-        <img id="portfolioHeroImg" src="assets/portfolio/custom-builds/IMG_1.jpg" alt="Portfolio hero image" class="w-full rounded-md" />
+
+      <div class="mt-10 bg-white/10 rounded-lg p-4 md:p-5">
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="space-y-2">
+            <div class="text-base font-semibold text-white/95">Rental Property Transformation</div>
+            <div class="aspect-video rounded-lg overflow-hidden bg-black">
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/ftg6XjiO8Xk"
+                title="Rental Property Transformation"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-base font-semibold text-white/95">ADU Property Transformation</div>
+            <div class="aspect-video rounded-lg overflow-hidden bg-black">
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/dF06d99o8i0"
+                title="ADU Property Transformation"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -438,15 +466,7 @@
     // Default to "All"
     setActiveFilter('all');
 
-    // Hero image: pick a random photo from the existing portfolio tiles.
-    const heroImg = document.getElementById('portfolioHeroImg');
-    const heroCandidates = Array.from(document.querySelectorAll('.pf-item[data-full]'))
-      .map((el) => el.getAttribute('data-full'))
-      .filter(Boolean);
-    if (heroImg && heroCandidates.length) {
-      const pick = heroCandidates[Math.floor(Math.random() * heroCandidates.length)];
-      heroImg.src = pick;
-    }
+    // Hero is a video embed (no random hero image needed).
 
     // If a local portfolio image isn't available yet, keep the page looking clean.
     // When you add your own files, the lightbox will display them.

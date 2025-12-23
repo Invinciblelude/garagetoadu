@@ -8,10 +8,12 @@
     .then(html => {
       headerPlaceholder.innerHTML = html;
       
-      // Determine current page from filename
-      let currentPage = window.location.pathname.split('/').pop() || '';
-      currentPage = currentPage.replace('.html', '').replace('index', '');
-      if (!currentPage || currentPage === '') currentPage = 'index';
+      // Determine current page from pathname.
+      // Supports direct file access (/services.html) and root (/index.html).
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      let currentPage = (pathParts[pathParts.length - 1] || 'index');
+      currentPage = currentPage.replace(/\.html$/i, '');
+      if (!currentPage || currentPage === 'index') currentPage = 'index';
       
       // Set active state for current page (desktop nav)
       const navLinks = headerPlaceholder.querySelectorAll('.nav-link');
@@ -39,7 +41,11 @@
       const closeIcon = headerPlaceholder.querySelector('#closeIcon');
       
       if (mobileMenuToggle && mobileMenu && menuIcon && closeIcon) {
-        mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.addEventListener('click', (e) => {
+          // Prevent any parent click handlers from interfering (and avoid accidental form submits)
+          if (e && typeof e.preventDefault === 'function') e.preventDefault();
+          if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+
           const isOpen = !mobileMenu.classList.contains('hidden');
           
           if (isOpen) {

@@ -47,7 +47,16 @@
         </div>
       </div>
       <div class="bg-white/10 rounded-lg p-4">
-        <img id="servicesHeroImg" src="assets/portfolio/custom-builds/IMG_1.jpg" alt="Project photo" class="w-full rounded-md" />
+        <div class="aspect-video rounded-md overflow-hidden bg-black">
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/RqONI4AHtCs"
+            title="Home Riser Fix - Services (Rental)"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -175,33 +184,7 @@
   </footer>
   <script src="assets/load-footer.js"></script>
 
-  <script>
-
-    // Hero image: pick a random photo from the portfolio folders.
-    const servicesHero = document.getElementById('servicesHeroImg');
-    const candidates = [
-      // Custom builds (current filenames)
-      'assets/portfolio/custom-builds/IMG_1.jpg',
-      'assets/portfolio/custom-builds/IMG_7.jpg',
-      'assets/portfolio/custom-builds/IMG_14.jpg',
-      'assets/portfolio/custom-builds/IMG_22.jpg',
-      // Decking (renamed to IMG_01 format)
-      'assets/portfolio/decking/IMG_01.jpg',
-      'assets/portfolio/decking/IMG_05.jpg',
-      'assets/portfolio/decking/IMG_10.jpg',
-      // Property maintenance (renamed to IMG_01 format)
-      'assets/portfolio/property-maintenance/IMG_01.jpg',
-      'assets/portfolio/property-maintenance/IMG_07.jpg',
-      'assets/portfolio/property-maintenance/IMG_13.jpg',
-    ];
-    if (servicesHero && candidates.length) {
-      const pick = candidates[Math.floor(Math.random() * candidates.length)];
-      servicesHero.src = pick;
-      servicesHero.addEventListener('error', () => {
-        servicesHero.src = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=60';
-      }, { once: true });
-    }
-  </script>
+  <script></script>
 </body>
 </html>
 

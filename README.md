@@ -9,7 +9,7 @@ Static single-page site (Tailwind via CDN) for a garage-to-ADU service.
 
 ## Edit content
 - Update copy in `index.html` (hero, pricing, process, ROI, contact).
-- Add portfolio photos to `assets/portfolio/` and update the image list in `portfolio.html`.
+- Add portfolio photos to `assets/portfolio/` and update the image list in `portfolio`.
   - The grid and lightbox are wired to filenames like `assets/portfolio/adu-01.jpg`.
   - If a local image is missing, the page uses a clean placeholder/fallback until you add your photos.
 
@@ -23,7 +23,7 @@ Static single-page site (Tailwind via CDN) for a garage-to-ADU service.
   - Prev/Next buttons
   - Keyboard navigation: Left/Right arrows
   - ESC to close
-- **Hero image** on `portfolio.html` is chosen randomly from the gallery tiles (`data-full`) on each page load.
+- Portfolio hero is a video embed (not a random hero image).
 
 ## Contact form (Formspree)
 1) Create a Formspree form and copy the form ID (e.g., `https://formspree.io/f/xxxxxx`).
