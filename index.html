@@ -120,7 +120,7 @@
           <iframe
             class="w-full h-full"
             src="https://www.youtube.com/embed/O7pR6kZNYIY"
-            title="Home Riser Fix - Video"
+            title="Building The Future"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
@@ -217,76 +217,7 @@
   </footer>
   <script src="assets/load-footer.js"></script>
 
-  <script>
-
-    // Gallery: pick random photos from portfolio projects
-    const galleryImages = document.querySelectorAll('.gallery-img');
-    const portfolioCandidates = [
-      // Custom builds
-      'assets/portfolio/custom-builds/IMG_1.jpg',
-      'assets/portfolio/custom-builds/IMG_2.jpg',
-      'assets/portfolio/custom-builds/IMG_3.jpg',
-      'assets/portfolio/custom-builds/IMG_4.jpg',
-      'assets/portfolio/custom-builds/IMG_5.jpg',
-      'assets/portfolio/custom-builds/IMG_6.jpg',
-      'assets/portfolio/custom-builds/IMG_7.jpg',
-      'assets/portfolio/custom-builds/IMG_8.jpg',
-      'assets/portfolio/custom-builds/IMG_9.jpg',
-      'assets/portfolio/custom-builds/IMG_10.jpg',
-      'assets/portfolio/custom-builds/IMG_11.jpg',
-      'assets/portfolio/custom-builds/IMG_12.jpg',
-      'assets/portfolio/custom-builds/IMG_13.jpg',
-      'assets/portfolio/custom-builds/IMG_14.jpg',
-      'assets/portfolio/custom-builds/IMG_15.jpg',
-      'assets/portfolio/custom-builds/IMG_16.jpg',
-      'assets/portfolio/custom-builds/IMG_17.jpg',
-      'assets/portfolio/custom-builds/IMG_18.jpg',
-      'assets/portfolio/custom-builds/IMG_19.jpg',
-      'assets/portfolio/custom-builds/IMG_20.jpg',
-      'assets/portfolio/custom-builds/IMG_21.jpg',
-      'assets/portfolio/custom-builds/IMG_22.jpg',
-      // Decking
-      'assets/portfolio/decking/IMG_01.jpg',
-      'assets/portfolio/decking/IMG_02.jpg',
-      'assets/portfolio/decking/IMG_03.jpg',
-      'assets/portfolio/decking/IMG_04.jpg',
-      'assets/portfolio/decking/IMG_05.jpg',
-      'assets/portfolio/decking/IMG_06.jpg',
-      'assets/portfolio/decking/IMG_07.jpg',
-      'assets/portfolio/decking/IMG_08.jpg',
-      'assets/portfolio/decking/IMG_09.jpg',
-      'assets/portfolio/decking/IMG_10.jpg',
-      // Property maintenance
-      'assets/portfolio/property-maintenance/IMG_01.jpg',
-      'assets/portfolio/property-maintenance/IMG_02.jpg',
-      'assets/portfolio/property-maintenance/IMG_03.jpg',
-      'assets/portfolio/property-maintenance/IMG_04.jpg',
-      'assets/portfolio/property-maintenance/IMG_05.jpg',
-      'assets/portfolio/property-maintenance/IMG_06.jpg',
-      'assets/portfolio/property-maintenance/IMG_07.jpg',
-      'assets/portfolio/property-maintenance/IMG_08.jpg',
-      'assets/portfolio/property-maintenance/IMG_09.jpg',
-      'assets/portfolio/property-maintenance/IMG_10.jpg',
-      'assets/portfolio/property-maintenance/IMG_11.jpg',
-      'assets/portfolio/property-maintenance/IMG_12.jpg',
-      'assets/portfolio/property-maintenance/IMG_13.jpg',
-    ];
-
-    if (galleryImages.length && portfolioCandidates.length) {
-      // Shuffle array and pick first N images
-      const shuffled = [...portfolioCandidates].sort(() => Math.random() - 0.5);
-      galleryImages.forEach((img, index) => {
-        if (shuffled[index]) {
-          img.src = shuffled[index];
-          img.alt = `Project photo ${index + 1}`;
-          // Fallback if image fails to load
-          img.addEventListener('error', function() {
-            this.src = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=60';
-            this.alt = 'Project photo';
-          }, { once: true });
-        }
-      });
-    }
-  </script>
+  <script src="assets/portfolio/projects-data.js"></script>
+  <script src="assets/portfolio/home-gallery.js"></script>
 </body>
 </html>

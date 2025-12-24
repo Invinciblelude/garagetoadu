@@ -1,0 +1,71 @@
+{
+  "projects": [
+    {
+      "id": "adu-studio-1",
+      "title": "1-room ADU Studio",
+      "category": "custom-builds",
+      "location": "",
+      "pairs": [
+        {
+          "label": "Studio",
+          "beforeSrc": "assets/portfolio/projects/adu/1-room-adu-studio-before.jpeg",
+          "afterSrc": "assets/portfolio/projects/adu/1-room-adu-studio-after.jpeg",
+          "altBefore": "ADU studio before",
+          "altAfter": "ADU studio after"
+        }
+      ]
+    },
+    {
+      "id": "custom-build-1",
+      "title": "Custom Build",
+      "category": "custom-builds",
+      "location": "",
+      "pairs": [
+        {
+          "label": "Transformation",
+          "beforeSrc": "assets/portfolio/projects/custom-builds/custombuild-before.jpeg",
+          "afterSrc": "assets/portfolio/projects/custom-builds/custombuild-after.jpeg",
+          "altBefore": "Custom build before",
+          "altAfter": "Custom build after"
+        },
+        {
+          "label": "Pool",
+          "beforeSrc": "assets/portfolio/projects/home-improvement/pool-before.jpeg",
+          "afterSrc": "assets/portfolio/projects/home-improvement/pool-after.jpeg",
+          "altBefore": "Pool before",
+          "altAfter": "Pool after"
+        }
+      ]
+    },
+    {
+      "id": "home-improvements-1",
+      "title": "Home Improvements",
+      "category": "home-improvement",
+      "location": "",
+      "pairs": [
+        {
+          "label": "Entry space",
+          "beforeSrc": "assets/portfolio/projects/home-improvement/entry-space-before.jpg",
+          "afterSrc": "assets/portfolio/projects/home-improvement/entry-space-after.jpeg",
+          "altBefore": "Entry space before",
+          "altAfter": "Entry space after"
+        },
+        {
+          "label": "Kitchen cabinets",
+          "beforeSrc": "assets/portfolio/projects/home-improvement/kitchen-cabinet-before.jpg",
+          "afterSrc": "assets/portfolio/projects/home-improvement/kitchen-cabinet-after.jpg",
+          "altBefore": "Kitchen cabinets before",
+          "altAfter": "Kitchen cabinets after"
+        },
+        {
+          "label": "Living room",
+          "beforeSrc": "assets/portfolio/projects/home-improvement/living-room-before.jpg",
+          "afterSrc": "assets/portfolio/projects/home-improvement/living-room-after.jpeg",
+          "altBefore": "Living room before",
+          "altAfter": "Living room after"
+        }
+      ]
+    }
+  ]
+}
+
