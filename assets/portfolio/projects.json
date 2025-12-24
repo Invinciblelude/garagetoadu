@@ -63,6 +63,98 @@
           "afterSrc": "assets/portfolio/projects/home-improvement/living-room-after.jpeg",
           "altBefore": "Living room before",
           "altAfter": "Living room after"
+        },
+        {
+          "label": "Small ADU",
+          "status": "completed",
+          "beforeSrc": "assets/portfolio/projects/home-improvement/small-adu-before.jpg",
+          "afterSrc": "assets/portfolio/projects/home-improvement/small-adu-after.jpeg",
+          "altBefore": "Small ADU before",
+          "altAfter": "Small ADU after"
+        }
+      ]
+    },
+    {
+      "id": "property-maintenance-completed-1",
+      "title": "Property Maintenance (Completed)",
+      "category": "property-maintenance",
+      "location": "",
+      "pairs": [
+        {
+          "label": "Fencing",
+          "status": "completed",
+          "beforeSrc": "assets/portfolio/projects/property-maintenance/fencing-before.jpg",
+          "afterSrc": "assets/portfolio/projects/property-maintenance/fencing-after.png",
+          "altBefore": "Fencing before",
+          "altAfter": "Fencing after"
+        },
+        {
+          "label": "Siding",
+          "status": "completed",
+          "beforeSrc": "assets/portfolio/projects/property-maintenance/siding-before.jpg",
+          "afterSrc": "assets/portfolio/projects/property-maintenance/siding-after.jpeg",
+          "altBefore": "Siding before",
+          "altAfter": "Siding after"
+        },
+        {
+          "label": "Patio painting",
+          "status": "completed",
+          "beforeSrc": "assets/portfolio/projects/property-maintenance/patio-painting-before.jpg",
+          "afterSrc": "assets/portfolio/projects/property-maintenance/patio-painting-after.jpg",
+          "altBefore": "Patio painting before",
+          "altAfter": "Patio painting after"
+        }
+      ]
+    },
+    {
+      "id": "decking-completed-1",
+      "title": "Decking (Completed)",
+      "category": "decking",
+      "location": "",
+      "singles": [
+        {
+          "label": "Decking",
+          "status": "completed",
+          "src": "assets/portfolio/projects/decking/completed/decking-1.jpg",
+          "alt": "Completed decking 1"
+        },
+        {
+          "label": "Decking",
+          "status": "completed",
+          "src": "assets/portfolio/projects/decking/completed/decking-2.jpg",
+          "alt": "Completed decking 2"
+        },
+        {
+          "label": "Decking",
+          "status": "completed",
+          "src": "assets/portfolio/projects/decking/completed/decking-3.jpg",
+          "alt": "Completed decking 3"
+        },
+        {
+          "label": "Decking",
+          "status": "completed",
+          "src": "assets/portfolio/projects/decking/completed/decking-4.jpg",
+          "alt": "Completed decking 4"
+        },
+        {
+          "label": "Decking",
+          "status": "completed",
+          "src": "assets/portfolio/projects/decking/completed/decking-5.jpg",
+          "alt": "Completed decking 5"
+        }
+      ]
+    },
+    {
+      "id": "fencing-completed-1",
+      "title": "Fencing (Completed)",
+      "category": "property-maintenance",
+      "location": "",
+      "singles": [
+        {
+          "label": "Fencing",
+          "status": "completed",
+          "src": "assets/portfolio/projects/property-maintenance/completed/fencing-1.png",
+          "alt": "Completed fencing"
         }
       ]
     }

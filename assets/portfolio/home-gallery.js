@@ -40,6 +40,19 @@
         });
       });
 
+      // Also include completed single images as candidates (nice variety)
+      projects.forEach((p) => {
+        if (!p || !Array.isArray(p.singles)) return;
+        p.singles.forEach((item) => {
+          if (item && item.src) {
+            afterCandidates.push({
+              src: item.src,
+              alt: (item.alt || (p.title ? `${p.title} photo` : 'Project photo'))
+            });
+          }
+        });
+      });
+
       if (!afterCandidates.length) throw new Error('No afterSrc images in manifest');
 
       const picked = shuffle(afterCandidates);

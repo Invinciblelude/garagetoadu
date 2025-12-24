@@ -79,6 +79,7 @@
       const categoryLabel = escapeHtml(safeCategoryLabel(project.category));
       const pid = escapeHtml(project.id || '');
       const pairs = Array.isArray(project.pairs) ? project.pairs : [];
+      const singles = Array.isArray(project.singles) ? project.singles : [];
 
       const pairsHtml = pairs.map((pair, idx) => {
         const beforeSrc = escapeHtml(pair.beforeSrc);
@@ -86,10 +87,18 @@
         const label = escapeHtml(pair.label || `Pair ${idx + 1}`);
         const altBefore = escapeHtml(pair.altBefore || `${title} before`);
         const altAfter = escapeHtml(pair.altAfter || `${title} after`);
+        const status = String(pair.status || '');
+        const note = status === 'completed'
+          ? 'Completed project – final photos.'
+          : 'In progress or example finish; final results may vary.';
+        const badge = status === 'completed'
+          ? '<span class="ml-2 inline-flex items-center rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 text-[11px] font-semibold">Completed</span>'
+          : '';
 
         return `
           <div class="pf-pair mt-4" data-project-id="${pid}" data-pair-index="${idx}">
-            <div class="text-sm font-semibold text-slate-800">${label}</div>
+            <div class="text-sm font-semibold text-slate-800">${label}${badge}</div>
+            <p class="text-xs text-slate-500 mt-1">${escapeHtml(note)}</p>
             <div class="mt-2 grid grid-cols-2 gap-3">
               <button type="button"
                 class="pf-pair-img group rounded-lg overflow-hidden border bg-white focus:outline-none focus:ring-2 focus:ring-green-700/60"
@@ -116,6 +125,34 @@
         `;
       }).join('');
 
+      const singlesHtml = singles.map((item, idx) => {
+        const src = escapeHtml(item.src);
+        const label = escapeHtml(item.label || `Photo ${idx + 1}`);
+        const alt = escapeHtml(item.alt || `${title} photo`);
+        const status = String(item.status || '');
+        const note = status === 'completed'
+          ? 'Completed project – final photos.'
+          : 'Example photo; final results may vary.';
+        const badge = status === 'completed'
+          ? '<span class="ml-2 inline-flex items-center rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 text-[11px] font-semibold">Completed</span>'
+          : '';
+
+        // For singles, reuse the pair lightbox navigation by treating each single as a "pair" with only an after image:
+        // we store it as a clickable tile with data-project-id and data-pair-index, but the lightbox expects before+after.
+        // Instead, singles open in a new tab for now (simple + honest).
+        return `
+          <div class="mt-4">
+            <div class="text-sm font-semibold text-slate-800">${label}${badge}</div>
+            <p class="text-xs text-slate-500 mt-1">${escapeHtml(note)}</p>
+            <a href="${src}" target="_blank" rel="noopener noreferrer" class="group block mt-2 rounded-lg overflow-hidden border bg-white focus:outline-none focus:ring-2 focus:ring-green-700/60">
+              <div class="w-full aspect-[5/4]">
+                <img src="${src}" alt="${alt}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform" loading="lazy" />
+              </div>
+            </a>
+          </div>
+        `;
+      }).join('');
+
       return `
         <section class="pf-project mt-6 rounded-lg border bg-white p-5" data-project="${category}">
           <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
@@ -124,7 +161,7 @@
               <h3 class="mt-1 text-xl font-bold">${title}</h3>
             </div>
           </div>
-          ${pairsHtml || '<div class="mt-3 text-sm text-slate-600">No before/after pairs added yet.</div>'}
+          ${pairsHtml}${singlesHtml}${(!pairsHtml && !singlesHtml) ? '<div class="mt-3 text-sm text-slate-600">No items added yet.</div>' : ''}
         </section>
       `;
     }).join('');
@@ -148,9 +185,9 @@
     // Re-render from manifest to avoid any stale hidden state and make "All" reliable.
     const filtered = getFilteredProjects();
 
-    // If the site has projects but this category has none yet, show nothing (no error box).
+    // If the site has projects but this category has none yet, show a subtle empty state (no error box).
     if (Array.isArray(manifest.projects) && manifest.projects.length > 0 && filtered.length === 0) {
-      container.innerHTML = '';
+      container.innerHTML = '<div class="mt-6 text-sm text-slate-500">No items in this category yet.</div>';
       return;
     }
 
